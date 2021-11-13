@@ -1,0 +1,20 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="6.0.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\DotnetStack.Core\DotnetStack.Core.csproj" />
+    <ProjectReference Include="..\DotnetStack.Engines\DotnetStack.Engines.csproj" />
+    <ProjectReference Include="..\DotnetStack.Handlers\DotnetStack.Handlers.csproj" />
+    <ProjectReference Include="..\DotnetStack.Utilities\DotnetStack.Utilities.csproj" />
+  </ItemGroup>
+
+</Project>
