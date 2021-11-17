@@ -1,5 +1,5 @@
+using DotnetStack.DataAccessHandlers;
 using DotnetStack.Engines.Infrastructure;
-using DotnetStack.Handlers.Infrastructure;
 using DotnetStack.Managers.Infrastructure;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -12,7 +12,7 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
 // Set up DI for our services
-builder.Services.AddHandlers();
+builder.Services.AddDataAccessHandlers(builder.Configuration);
 builder.Services.AddEngines();
 builder.Services.AddManagers();
 

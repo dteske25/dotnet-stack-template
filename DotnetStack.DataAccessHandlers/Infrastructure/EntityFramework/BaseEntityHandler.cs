@@ -1,19 +1,15 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Linq.Expressions;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Linq.Expressions;
+using DotnetStack.Core.Interfaces;
 using Microsoft.EntityFrameworkCore;
 
-namespace DotnetStack.Handlers.Infrastructure
+namespace DotnetStack.DataAccessHandlers.Infrastructure.EntityFramework
 {
-    public abstract class EntityRepository<T> where T : class
+    public abstract class BaseEntityHandler<T> : IBaseEntityHandler<T> where T : class
     {
         private readonly DbSet<T> _dbSet;
         private readonly IDbSetFactory _dbSetFactory;
 
-        public EntityRepository(IDbSetFactory dbSetFactory)
+        public BaseEntityHandler(IDbSetFactory dbSetFactory)
         {
             _dbSet = dbSetFactory.CreateDbSet<T>();
             _dbSetFactory = dbSetFactory;
@@ -40,6 +36,11 @@ namespace DotnetStack.Handlers.Infrastructure
         public bool Contains(T entity)
         {
             return _dbSet.Find(entity) != null;
+        }
+
+        public bool Contains(Expression<Func<T, bool>> where)
+        {
+            return _dbSet.Any(where);
         }
 
         public T? Find(object id)

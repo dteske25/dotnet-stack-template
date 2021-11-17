@@ -2,41 +2,93 @@
 
 ## Clients
 
-DotnetStack.Api
+### DotnetStack.Api
+
 Communication point to the backend
 
 - Fluent validation
 
-DotnetStack.App
+### DotnetStack.App
 
 - React w/ typescript
 
-DotnetStack.BackgroundProcesses
+### DotnetStack.BackgroundProcesses
 
 - Hangfire implemented to run scheduled processes
 - Topshelf
 
 ## Business Logic
 
-DotnetStack.Engines
+### DotnetStack.Engines
+
 Used for smaller, reusable chunks of business logic
 
-DotnetStack.Managers
+### DotnetStack.Managers
+
 Used for larger, higher level workflows
 
 ## Data Access
 
-DotnetStack.Handlers
-
 Used for data access
 
+### DotnetStack.DataAccessHandlers
+
 - RestSharp is implemented for 3rd party api calls
+
+### DotnetStack.IntegrationHandlers
+
 - EntityFramework is implemented for data storage
 
 ## Core
 
-DotnetStack.Core
+### DotnetStack.Core
+
 Base types that will be used throughout the platform
 
-DotnetStack.Utilities
+### DotnetStack.Utilities
+
 Pure, global functions that don't belong in any other layer
+
+
+
+# Getting Started
+
+## Setup Database & Run Migrations
+
+First pull the SQL Server image
+
+```bash
+docker pull mcr.microsoft.com/mssql/server
+```
+
+Then startup the SQL Server
+
+```bash
+docker run -e 'ACCEPT_EULA=Y' -e 'SA_PASSWORD=Str0ngPa$$w0rd' -p 1433:1433 -d mcr.microsoft.com/mssql/server 
+```
+
+You can verify it started up correctly by running
+
+```bash
+docker container ls
+```
+
+
+
+
+```
+dotnet tool install --global dotnet-ef
+```
+
+
+
+
+```
+dotnet ef database update --project .\DotnetStack.DataAccessHandlers\ --startup-project .\DotnetStack.Api\
+```
+
+
+## Adding Migrations
+```
+dotnet ef migrations add <MigrationName> --project .\DotnetStack.DataAccessHandlers\ --startup-project .\DotnetStack.Api\
+```

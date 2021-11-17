@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DotnetStack.Handlers.Infrastructure.EntityFramework
+namespace DotnetStack.DataAccessHandlers.Infrastructure.EntityFramework
 {
     public interface IDbContext : IDisposable
     {

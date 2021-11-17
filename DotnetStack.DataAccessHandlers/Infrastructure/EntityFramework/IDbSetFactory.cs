@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
 
-namespace DotnetStack.Handlers.Infrastructure
+namespace DotnetStack.DataAccessHandlers.Infrastructure.EntityFramework
 {
     public interface IDbSetFactory : IDisposable
     {

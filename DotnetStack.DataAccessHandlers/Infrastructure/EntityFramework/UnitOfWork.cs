@@ -3,8 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using DotnetStack.Core.Interfaces;
 
-namespace DotnetStack.Handlers.Infrastructure.EntityFramework
+namespace DotnetStack.DataAccessHandlers.Infrastructure.EntityFramework
 {
     public class UnitOfWork : IUnitOfWork, IDisposable
     {

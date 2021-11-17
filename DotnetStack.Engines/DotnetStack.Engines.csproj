@@ -12,7 +12,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\DotnetStack.Core\DotnetStack.Core.csproj" />
-    <ProjectReference Include="..\DotnetStack.Handlers\DotnetStack.Handlers.csproj" />
+    <ProjectReference Include="..\DotnetStack.DataAccessHandlers\DotnetStack.DataAccessHandlers.csproj" />
     <ProjectReference Include="..\DotnetStack.Utilities\DotnetStack.Utilities.csproj" />
   </ItemGroup>
 

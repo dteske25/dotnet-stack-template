@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using DotnetStack.Managers.Quotes;
 using Microsoft.Extensions.DependencyInjection;
 
 namespace DotnetStack.Managers.Infrastructure
@@ -11,6 +7,7 @@ namespace DotnetStack.Managers.Infrastructure
     {
         public static IServiceCollection AddManagers(this IServiceCollection services)
         {
+            services.AddTransient<IQuoteManager, QuoteManager>();
 
             return services;
         }
