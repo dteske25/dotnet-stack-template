@@ -49,9 +49,11 @@ Base types that will be used throughout the platform
 
 Pure, global functions that don't belong in any other layer
 
-
-
 # Getting Started
+
+## Naming
+
+Find and replace all references of `DotnetStack` with the name of your project, including file names, project names, and any class names or variables.
 
 ## Setup Database & Run Migrations
 
@@ -64,7 +66,7 @@ docker pull mcr.microsoft.com/mssql/server
 Then startup the SQL Server
 
 ```bash
-docker run -e 'ACCEPT_EULA=Y' -e 'SA_PASSWORD=Str0ngPa$$w0rd' -p 1433:1433 -d mcr.microsoft.com/mssql/server 
+docker run -e 'ACCEPT_EULA=Y' -e 'SA_PASSWORD=Str0ngPa$$w0rd' -p 1433:1433 -d mcr.microsoft.com/mssql/server
 ```
 
 You can verify it started up correctly by running
@@ -73,22 +75,20 @@ You can verify it started up correctly by running
 docker container ls
 ```
 
-
-
-
 ```
 dotnet tool install --global dotnet-ef
 ```
-
-
-
 
 ```
 dotnet ef database update --project .\DotnetStack.DataAccessHandlers\ --startup-project .\DotnetStack.Api\
 ```
 
+> When using the `ef` tools, because of how DI was set up, you'll need to specify both a project and a startup project
 
 ## Adding Migrations
+
+As you make changes to the DB, you can add additional migrations by running the following, specifying a `<MigrationName>`
+
 ```
 dotnet ef migrations add <MigrationName> --project .\DotnetStack.DataAccessHandlers\ --startup-project .\DotnetStack.Api\
 ```
