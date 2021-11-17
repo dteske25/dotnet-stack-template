@@ -57,6 +57,8 @@ Find and replace all references of `DotnetStack` with the name of your project, 
 
 ## Setup Database & Run Migrations
 
+> For your convenience, a script was included to aid with first time setup, which goes through these steps. Simply run `./setup-db.sh`
+
 First pull the SQL Server image
 
 ```bash
